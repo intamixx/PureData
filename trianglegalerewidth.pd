@@ -1,0 +1,84 @@
+#N canvas 271 468 1024 558 12;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-sum 44100 float 0;
+#X coords 0 0.5 44099 -0.5 200 130 1;
+#X restore 787 34 graph;
+#X text 783 177 ---- 0.02 seconds ----;
+#X obj 251 326 tabwrite~ \$0-sum;
+#X obj 262 278 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X obj 262 300 metro 193;
+#X obj 107 30 phasor~;
+#X floatatom 107 9 5 0 0 0 - - -;
+#X obj 106 72 *~;
+#X obj 165 64 *~ -1;
+#X obj 165 89 +~ 1;
+#X obj 165 123 *~;
+#X obj 105 153 min~;
+#X text -16 348 Occasionally a second method for making corners is
+more convenient. Here we specify the slopes of the rising and falling
+segments (as always \, in units per cycle). We then make a triangle
+wave with a corner at (0 \, 0) and another one \, placed somewhere
+within the cycle. The slopes of the two lines determine the second
+point \, which will have an x value of t/(s+t) (if we let s denote
+the rising slope and t the falling one \, both as positive numbers).
+The y value is st/(s+t). If we wish instead to specify the corner location
+(x \, y) (with x in cycles \, 0<x<1) we set s = y/x and t = y/(1-x).
+The DC value is y/2.;
+#X obj 238 -24 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 335 124 5 0 0 0 - - -;
+#X obj 289 60 - 1;
+#X obj 317 227 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 290 90 * -1;
+#X obj 533 102 max;
+#X floatatom 578 190 5 0 0 0 - - -;
+#X obj 556 160 abs;
+#X obj 104 232 *~;
+#X floatatom 516 223 5 0 0 0 - - -;
+#X obj 516 197 /;
+#X obj 319 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 556 130 - 1;
+#X floatatom 336 -9 5 0 0 0 - - -;
+#X obj 516 262 *~ 0.5;
+#X text 595 98 i divide the highest slope by the lowest;
+#X text 113 174 peak out;
+#X text 141 238 amplitude peak;
+#X text 318 55 reverse the value (crossfade);
+#X text 381 -31 one fader for the two slopes;
+#X text 593 237 i use this ratio to control the amplitude of the min~
+out in order to have the same amplitude than the highest slope;
+#X obj 41 274 dac~;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 7 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 0;
+#X connect 7 0 11 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 1;
+#X connect 11 0 21 0;
+#X connect 11 0 34 0;
+#X connect 13 0 15 0;
+#X connect 13 0 7 1;
+#X connect 13 0 26 0;
+#X connect 13 0 18 1;
+#X connect 14 0 18 0;
+#X connect 14 0 24 0;
+#X connect 15 0 17 0;
+#X connect 16 0 2 0;
+#X connect 17 0 14 0;
+#X connect 17 0 10 1;
+#X connect 18 0 23 0;
+#X connect 18 0 25 0;
+#X connect 20 0 19 0;
+#X connect 20 0 23 1;
+#X connect 21 0 2 0;
+#X connect 22 0 27 0;
+#X connect 23 0 22 0;
+#X connect 24 0 18 0;
+#X connect 25 0 20 0;
+#X connect 27 0 21 1;
