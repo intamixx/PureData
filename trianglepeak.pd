@@ -1,0 +1,87 @@
+#N canvas 0 63 904 664 10;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-sum 882 float 0;
+#X coords 0 0.5 881 -0.5 200 130 1;
+#X restore 459 192 graph;
+#X text 458 330 ---- 0.02 seconds ----;
+#X text 360 575 updated for Pd version 0.39;
+#X obj 150 356 tabwrite~ \$0-sum;
+#X obj 161 308 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X obj 161 330 metro 193;
+#X obj 29 105 phasor~;
+#X floatatom 29 84 5 0 0 0 - - -;
+#X text 21 61 frequency;
+#X obj 118 217 *~;
+#X obj 29 209 *~ -1;
+#X obj 29 234 +~ 1;
+#X obj 194 236 *~;
+#X obj 118 269 min~;
+#X text 418 191 0.5;
+#X text 415 310 -0.5;
+#X text 40 14 Making waveforms with corners by specifying line segment
+slopes;
+#X text 39 387 Occasionally a second method for making corners is more
+convenient. Here we specify the slopes of the rising and falling segments
+(as always \, in units per cycle). We then make a triangle wave with
+a corner at (0 \, 0) and another one \, placed somewhere within the
+cycle. The slopes of the two lines determine the second point \, which
+will have an x value of t/(s+t) (if we let s denote the rising slope
+and t the falling one \, both as positive numbers). The y value is
+st/(s+t). If we wish instead to specify the corner location (x \, y)
+(with x in cycles \, 0<x<1) we set s = y/x and t = y/(1-x). The DC
+value is y/2.;
+#X floatatom 303 77 0 0 0 0 - - -;
+#X text 289 77 x;
+#X obj 224 55 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 174 124 expr .5/$f1;
+#X obj 284 124 expr .5/(1-$f1);
+#X floatatom 205 148 0 0 0 0 - - -;
+#X floatatom 321 149 0 0 0 0 - - -;
+#X text 191 148 s;
+#X text 307 149 t;
+#X obj 56 323 dac~;
+#X obj 757 8 ctlin;
+#X floatatom 692 52 5 0 0 0 - - -;
+#X floatatom 742 53 5 0 0 0 - - -;
+#X floatatom 796 53 5 0 0 0 - - -;
+#X obj 798 89 == 2;
+#X obj 765 125 t b f;
+#X obj 741 161 &&;
+#X floatatom 739 193 5 0 0 0 - - -;
+#X obj 731 231 spigot;
+#X floatatom 733 263 5 0 0 0 - - -;
+#X obj 744 82 == 28;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 9 0;
+#X connect 6 0 10 0;
+#X connect 7 0 6 0;
+#X connect 9 0 13 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 1;
+#X connect 13 0 3 0;
+#X connect 13 0 27 0;
+#X connect 13 0 27 1;
+#X connect 20 0 18 0;
+#X connect 20 0 21 0;
+#X connect 20 0 22 0;
+#X connect 21 0 9 1;
+#X connect 21 0 23 0;
+#X connect 22 0 12 1;
+#X connect 22 0 24 0;
+#X connect 28 0 29 0;
+#X connect 28 1 30 0;
+#X connect 28 2 31 0;
+#X connect 29 0 36 0;
+#X connect 30 0 38 0;
+#X connect 31 0 32 0;
+#X connect 32 0 33 0;
+#X connect 33 1 34 1;
+#X connect 34 0 35 0;
+#X connect 35 0 36 1;
+#X connect 36 0 37 0;
+#X connect 37 0 7 0;
+#X connect 38 0 34 0;
