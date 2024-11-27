@@ -1,0 +1,24 @@
+#N canvas 457 227 721 486 12;
+#X text 281 36 this is a note of velocity 89;
+#X msg 280 114 \$1;
+#X obj 280 193 pipe 200;
+#X obj 333 164 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 1216 256;
+#X text 346 196 this output the number after this delay;
+#X text 392 160 Here you can set the lenght of a delay \, it will be
+the note lenght.;
+#X text 320 222 This ad a 0 after the number;
+#X obj 117 258 print;
+#X text 316 257 This;
+#X text 315 111 this keeps only the firts number in the list;
+#X msg 280 220 \$1 44;
+#X obj 238 258 noteout 13;
+#X msg 238 37 0 89;
+#X connect 1 0 2 0;
+#X connect 2 0 10 0;
+#X connect 3 0 2 1;
+#X connect 10 0 7 0;
+#X connect 10 0 11 0;
+#X connect 12 0 11 0;
+#X connect 12 0 1 0;
+#X connect 12 0 7 0;
