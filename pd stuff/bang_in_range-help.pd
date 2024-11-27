@@ -1,0 +1,14 @@
+#N canvas 785 79 382 219 10;
+#X obj 119 123 bang_in_range;
+#X obj 119 166 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 119 64 5 0 0 0 - - -;
+#X floatatom 211 64 5 0 0 0 - - -;
+#X floatatom 228 91 5 0 0 0 - - -;
+#X text 250 62 lower bound;
+#X text 271 90 upper bound;
+#X text 75 64 Input;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 1;
+#X connect 4 0 0 2;

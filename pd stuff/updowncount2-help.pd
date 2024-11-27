@@ -1,0 +1,15 @@
+#N canvas 0 0 472 304 10;
+#X obj 187 200 updowncount2 0 11;
+#X floatatom 188 231 5 0 0 0 - - -;
+#X floatatom 250 144 5 0 0 0 - - -;
+#X floatatom 297 143 5 0 0 0 - - -;
+#X obj 122 91 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 1
+1;
+#X text 247 124 low;
+#X text 297 125 high;
+#X obj 122 109 metro 500;
+#X connect 0 0 1 0;
+#X connect 2 0 0 1;
+#X connect 3 0 0 2;
+#X connect 4 0 7 0;
+#X connect 7 0 0 0;
